@@ -1,0 +1,52 @@
+﻿@model  List<Escuela.Dominio.Enrollement>
+
+
+    @{
+        ViewData["Title"] = "Home Page";
+
+
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+
+    <table Id="Mitabla" class="table table-striped table-hover">
+
+        <thead>
+            <tr>
+                <th>
+                    Id Enrollement
+                </th>
+
+                <th>
+                    Student Id
+                </th>
+
+                <th>
+                    LastName
+                </th>
+
+                <th>
+                    FirstMidName
+                </th>
+
+                <th>
+                    CursoAlQuePerteneceElEstudiante
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var iteracion in Model) {
+            <tr>
+                <td>@iteracion.EnrollementID</td>
+                <td>@iteracion.StudentID</td>
+                <td>@iteracion.Students.LastName</td>
+                <td>@iteracion.Students.FirstMidName</td>
+                <td>@iteracion.Course.Tittle</td>
+
+            </tr> }
+        </tbody>
+    </table>

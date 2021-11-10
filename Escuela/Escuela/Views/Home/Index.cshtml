@@ -1,0 +1,85 @@
+﻿@model  List<Escuela.Dominio.Enrollement>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<table Id="Mitabla" class="table table-striped table-hover">
+
+        <thead>
+            <tr>
+                <th>
+                    Id Errollement
+                </th>
+
+                <th>
+                    Student Id
+                </th>
+
+                <th>
+                    Course ID
+                </th>
+
+                <th>
+                    LastName
+                </th>
+
+                <th>
+                    FirstMidName
+                </th>
+
+                <th>
+                    CursoAlQuePerteneceElEstudiante
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var iteracion in Model) {
+            <tr>
+                <td>@iteracion.EnrollementID</td>
+                <td>@iteracion.StudentID</td>
+                <td>@iteracion.Course.CourseId</td>
+                <td>@iteracion.Students.LastName</td>
+                <td>@iteracion.Students.FirstMidName</td>
+                <td>@iteracion.Course.Tittle</td>
+
+            </tr> }
+        </tbody>
+    </table>
+@section scripts{ 
+
+    <script crs="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
+    <script>
+        $(document).ready(function () {
+
+            var table = $('#Mitabla').DataTable({
+                "ajax": {
+                    "url": '/Home/GetAll',
+                    "type": "Get",
+                    "datatype": "Json"
+                },
+                "Colum": [
+
+                    { "data": "courseId", "name": "courseId", "autowidth": true },
+                    { "data": "title", "name": "title", "autowidth": true },
+                    { "data": "credits", "name": "credits", "autowidth": true }
+
+                ]
+            })
+        });
+
+       
+    </script>
+
+   
+
+
+
+}

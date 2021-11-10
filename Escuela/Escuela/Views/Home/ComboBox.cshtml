@@ -1,0 +1,27 @@
+﻿@model Escuela.Dominio.Enrollement
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ComboBox</title>
+
+
+   
+</head>
+<body>
+    @using (Html.BeginForm("getinformationCombobox", "Home" ,FormMethod.Post)) {
+
+
+    @Html.DropDownListFor(a => a.CourseID, new SelectList(ViewBag.estadolistcourse, "Value", "Text"), "Select A course", new { @class = "form-control" })
+    <br />
+    @Html.DropDownListFor(a => a.StudentID, new SelectList(ViewBag.estadoliststudents, "Value", "Text"), "Select A students", new { @class = "form-control" })
+
+        <input type="submit" />
+    }
+</body>
+</html>
